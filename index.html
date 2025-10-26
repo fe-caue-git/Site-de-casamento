@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danubia & Fernando - Save the Date</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Reset básico e variáveis */
+        :root {
+            --primary-font: 'Playfair Display', serif;
+            --secondary-font: 'Lora', serif;
+            --text-color: #333;
+            --accent-color: #A3B18A;
+            /* Cor verde/oliva clara */
+            --background-color-light: #F8F8F4;
+            /* Quase branco/bege claro */
+            --background-color-dark: #3A5A40;
+            /* Verde escuro */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--secondary-font);
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--background-color-light);
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            background-color: #fff;
+            /* Fundo branco para a navbar */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .social-icons .icon {
+            margin-right: 15px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 1.2em;
+            /* Exemplo: você pode usar ícones de fontes como Font Awesome */
+        }
+
+        .navbar nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .navbar nav ul li {
+            margin-left: 30px;
+        }
+
+        .navbar nav ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .navbar nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            display: flex;
+            min-height: calc(100vh - 70px);
+            /* Altura total da tela menos a navbar */
+        }
+
+        .hero-image {
+            flex: 1;
+            background-image: url('../WhatsApp\ Image\ 2025-10-25\ at\ 20.43.10\ \(2\).jpeg');
+            /* Substitua pela URL da imagem do casal */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        /* Adicione as folhas e texturas sobre a imagem do casal */
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('URL_DA_FOLHAGEM_ESQUERDA.png'), url('URL_DA_FOLHAGEM_BAIXO.png');
+            /* Crie essas imagens PNG transparentes */
+            background-repeat: no-repeat;
+            background-position: top left, bottom left;
+            background-size: 20% auto, 25% auto;
+            /* Ajuste conforme necessário */
+        }
+
+
+        .hero-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--background-color-light);
+            text-align: center;
+            position: relative;
+            padding: 40px;
+        }
+
+        /* Adicione as folhas e texturas sobre a seção de conteúdo */
+        .hero-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('URL_DA_FOLHAGEM_SUPERIOR_DIREITA.png'), url('URL_DAS_BOLINHAS_PONTILHADAS.png');
+            /* Crie essas imagens PNG transparentes */
+            background-repeat: no-repeat;
+            background-position: top right, center;
+            /* Ajuste conforme a imagem */
+            background-size: 15% auto, 10% auto;
+            /* Ajuste conforme necessário */
+            opacity: 0.6;
+            /* Para as bolinhas pontilhadas serem mais sutis */
+            z-index: 0;
+        }
+
+        .names {
+            margin-bottom: 30px;
+            z-index: 1;
+            /* Para garantir que o texto fique acima das texturas */
+        }
+
+        .names h1 {
+            font-family: var(--primary-font);
+            font-size: 3.5em;
+            color: var(--background-color-dark);
+            /* Texto mais escuro */
+            line-height: 1;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .names h1::before {
+            /* Adicionar os elementos decorativos ao redor do nome */
+            content: '';
+            /* Ou uma imagem de folha */
+            position: absolute;
+            left: -40px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.8em;
+            color: var(--accent-color);
+        }
+
+        .names h1::after {
+            content: '';
+            /* Ou uma imagem de flor */
+            position: absolute;
+            right: -40px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.8em;
+            color: var(--accent-color);
+        }
+
+
+        .names p {
+            /* Para o pequeno elemento entre os nomes */
+            font-size: 1.2em;
+            color: var(--accent-color);
+        }
+
+        .save-the-date {
+            z-index: 1;
+        }
+
+        .save-the-date h2 {
+            font-family: var(--primary-font);
+            font-size: 2em;
+            color: var(--text-color);
+            margin-bottom: 20px;
+        }
+
+        .date-details {
+            font-family: var(--primary-font);
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: var(--background-color-dark);
+        }
+
+        .date-details .day,
+        .date-details .month {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        .invite-text {
+            font-size: 0.9em;
+            color: var(--text-color);
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .confirm-button {
+            background-color: var(--accent-color);
+            color: #fff;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .confirm-button:hover {
+            background-color: var(--background-color-dark);
+        }
+
+        /* Media Queries para responsividade */
+        @media (max-width: 768px) {
+            .hero-section {
+                flex-direction: column;
+            }
+
+            .hero-image {
+                min-height: 400px;
+                width: 100%;
+            }
+
+            .hero-content {
+                padding: 30px 20px;
+            }
+
+            .navbar {
+                flex-direction: column;
+                padding: 15px 20px;
+            }
+
+            .navbar nav ul {
+                margin-top: 10px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .navbar nav ul li {
+                margin: 5px 15px;
+            }
+
+            .names h1 {
+                font-size: 2.5em;
+            }
+
+            .date-details {
+                font-size: 1.5em;
+            }
+        }
+
+        /**/
+        :root {
+            --bg: #f6f7f4;
+            --accent: #2f4b41;
+            --muted: #6b6b6b;
+            --card: #ffffff
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+            margin: 0;
+            color: var(--accent);
+            background: linear-gradient(180deg, #fbfbfa 0%, #f2f5f2 100%)
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 22px 40px
+        }
+
+        .logo {
+            font-weight: 700;
+            letter-spacing: 1px
+        }
+
+        nav ul {
+            display: flex;
+            gap: 18px;
+            list-style: none;
+            padding: 0;
+            margin: 0
+        }
+
+        nav a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600
+        }
+
+        /* Sections */
+        .container {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 0 20px
+        }
+
+        section {
+            margin: 36px 0
+        }
+
+        h2 {
+            font-size: 22px;
+            margin: 0 0 12px
+        }
+
+        .cols {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px
+        }
+
+        .card {
+            background: #fff;
+            padding: 18px;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(39, 60, 52, 0.04)
+        }
+
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px
+        }
+
+        .gallery img {
+            width: 100%;
+            border-radius: 8px;
+            display: block
+        }
+
+        /* RSVP */
+        .rsvp-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px
+        }
+
+        input,
+        textarea,
+        select {
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #e7e7e7;
+            font-size: 14px
+        }
+
+        .row {
+            display: flex;
+            gap: 10px
+        }
+
+        footer {
+            padding: 24px;
+            text-align: center;
+            color: var(--muted)
+        }
+
+        /* Responsive */
+        @media(max-width:900px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            nav ul {
+                display: none
+            }
+        }
+
+        @media(max-width:520px) {
+            .gallery {
+                grid-template-columns: 1fr
+            }
+
+            .names {
+                font-size: 30px
+            }
+
+            .photo {
+                height: 300px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="social-icons">
+            <a href="#" class="icon">F</a>
+            <a href="#" class="icon">T</a>
+            <a href="#" class="icon">I</a>
+            <a href="#" class="icon">P</a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Wedding</a></li>
+                <li><a href="#">Ceremony</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="hero-section">
+        <div class="hero-image">
+        </div>
+        <div class="hero-content">
+            <div class="names">
+                <h1>Danubia & Fernando</h1>
+                <p>🌸🌿</p>
+            </div>
+            <div class="save-the-date">
+                <h2>Save the Date</h2>
+                <p class="date-details">
+                    SATURDAY <span class="day">22</span> <span class="month">Apr.</span> <span class="time">18
+                        hs.</span>
+                </p>
+                <p class="invite-text">INVITE YOU TO JOIN THEM AT<br>THE CELEBRATION OF THEY MARRIED</p>
+                <button class="confirm-button">Confirm Assistance</button>
+            </div>
+        </div>
+    </main>
+
+    <main>
+        <div class="container">
+            <section id="historia">
+                <h2>Nossa história</h2>
+                <div class="cols">
+                    <div class="card">
+                        <p><strong>Como nos conhecemos</strong></p>
+                        <p>Nos conhecemos em uma tarde de primavera, entre risadas e café. Desde então, compartilhamos
+                            viagens, sonhos e pequenas aventuras do dia a dia.</p>
+                    </div>
+                    <div class="card">
+                        <p><strong>O pedido</strong></p>
+                        <p>Um jantar simples que virou inesquecível: ali começamos a imaginar uma vida inteira juntos.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="cerimonia">
+                <h2>Local da cerimônia</h2>
+                <div class="card" style="display:flex;gap:14px;align-items:center;">
+                    <div style="flex:1;">
+                        <p><strong>Igreja Nossa Senhora das Flores</strong></p>
+                        <p>Rua das Oliveiras, 123 — Centro</p>
+                        <p>Recepção a partir das 20:00 no Espaço Jardim Verde.</p>
+                        <a class="btn" href="https://www.google.com/maps" target="_blank">Ver no mapa</a>
+                    </div>
+                    <div style="width:220px;">
+                        <img src="https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=800&q=60"
+                            alt="Local" style="width:100%;border-radius:8px" />
+                    </div>
+                </div>
+            </section>
+
+            <section id="presentes">
+                <h2>Lista de presentes</h2>
+                <div class="cols">
+                    <div class="card">
+                        <p>Se preferir presentear virtualmente, aceitamos contribuições para nossa lua de mel. Também
+                            preparamos algumas sugestões na loja parceira.</p>
+                        <a class="btn" href="#">Ver sugestões</a>
+                    </div>
+                    <div class="card">
+                        <p><strong>Como ajudar</strong></p>
+                        <ul>
+                            <li>Contribuição para lua de mel</li>
+                            <li>Presentes da lista</li>
+                            <li>Cartão com mensagem</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="galeria">
+                <h2>Galeria</h2>
+                <div class="gallery">
+                    <img src="../WhatsApp Image 2025-10-25 at 20.43.10 (1).jpeg" alt="foto1" />
+                    <img src="../WhatsApp Image 2025-10-25 at 20.43.10 (2).jpeg" alt="foto2" />
+                    <img src="../WhatsApp Image 2025-10-25 at 20.43.10.jpeg" alt="foto3" />
+                </div>
+            </section>
+
+            <section id="rsvp">
+                <h2>Confirmar presença</h2>
+                <div class="card">
+                    <form id="rsvpForm" class="rsvp-form" onsubmit="return handleRSVP(event)">
+                        <input type="text" id="nome" placeholder="Seu nome" required />
+                        <div class="row">
+                            <input type="email" id="email" placeholder="E-mail" required />
+                            <select id="presenca">
+                                <option value="presente">Eu vou comparecer</option>
+                                <option value="ausente">Não poderei comparecer</option>
+                            </select>
+                        </div>
+                        <textarea id="mensagem" placeholder="Mensagem (opcional)" rows="3"></textarea>
+                        <div style="display:flex;gap:10px;align-items:center">
+                            <button class="btn btn-primary" type="submit">Enviar confirmação</button>
+                            <button class="btn" type="button" onclick="limparRSVP()">Limpar</button>
+                        </div>
+                        <p id="rsvpFeedback" style="color:var(--muted);margin-top:8px"></p>
+                    </form>
+                </div>
+            </section>
+
+            <section id="contato">
+                <h2>Contato</h2>
+                <div class="cols">
+                    <div class="card">
+                        <p><strong>Assessoria</strong></p>
+                        <p>contato@assessoriaeventos.com.br</p>
+                        <p>Telefone: (11) 98765-4321</p>
+                    </div>
+                    <div class="card">
+                        <p><strong>Observações</strong></p>
+                        <p>Se precisar de informações adicionais sobre acessibilidade ou transporte, nos avise quando
+                            confirmar presença.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        const weddingDate = new Date("April 22, 2024 18:00:00").getTime();
+
+        const x = setInterval(function () {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    Atualize um elemento HTML com a contagem
+            document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+                + minutes + "m " + seconds + "s ";
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "CASADOS!";
+            }
+        }, 1000);
+    </script>
+</body>
+
+</html>
